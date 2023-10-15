@@ -1,2 +1,3 @@
-# springboot-3-microservices
-springboot-3-microservices
+#SpringBoot-3-Microservices
+Feature covered: Microservice communication, Service-Registry, Config-Server and Api-Gateway
+
