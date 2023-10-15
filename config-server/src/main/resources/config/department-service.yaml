@@ -1,7 +1,6 @@
 server:
   port: 8081
 
-  #our department service should connect to our service registry of:
 eureka:
   client:
     serviceUrl:
@@ -11,14 +10,3 @@ management:
   tracing:
     sampling:
       probability: 1.0
-
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/Department
-
-    username: postgres
-    password: Password
-
-  jpa:
-    hibernate:
-      ddl-auto: create
