@@ -1,3 +1,4 @@
 #SpringBoot-3-Microservices
-Feature covered: Microservice communication, Service-Registry, Config-Server and Api-Gateway
+#Feature covered: Microservice communication, Service-Registry, Config-Server and Api-Gateway, zipkin for logTracing
+
 
