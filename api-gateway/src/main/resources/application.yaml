@@ -23,7 +23,15 @@ spring:
           uri: lb://employee-service
           predicates:
             - Path=/employee/**
+
         - id: department-service
           uri: lb://department-service
           predicates:
             - Path=/department/**
+
+
+security:
+  oauth2:
+    resourceserver:
+      jwt:
+        issuer-uri: http://localhost:9090/realms/springboot-microservice-realm
