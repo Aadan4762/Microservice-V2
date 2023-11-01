@@ -1,12 +1,52 @@
 server:
   port: 8082
 
+  #our employee service should connect to our service registry of:
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
-management:
-  tracing:
-    sampling:
+
+spring:
+  sleuth:
+    sampler:
       probability: 1.0
+  zipkin:
+    base-url: http://localhost:9411
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/employee
+
+    username: postgres
+    password: Password
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      employeeService:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED

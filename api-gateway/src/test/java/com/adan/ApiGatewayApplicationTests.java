@@ -1,4 +1,4 @@
-package com.dailycodebuffer.apigateway;
+package com.adan;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

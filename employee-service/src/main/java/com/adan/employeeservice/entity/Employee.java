@@ -1,5 +1,4 @@
-package com.adan.departmentservice.model;
-
+package com.adan.employeeservice.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -9,16 +8,21 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "departments")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Department {
+@Entity
+@Table(name = "employees")
+public class Employee {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "name")
     private String name;
-
+    @Column(name = "email")
+    private String email;
+    @Column(name = "department")
+    private String department;
 }
